@@ -4,6 +4,7 @@ import random
 
 # -------------------------------------------------------------------------------------------------------------------------------
 # Global variables to keep track of the game state
+is_finished = 0
 house = [['0', '1', '2'], ['3', '4', '5'], ['6', '7', '8']]
 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,3 +27,30 @@ def print_board():
 # If turn is 1, player's turn and 0 stands for computer's turn
 turn = random.randint(1, 2)
 print_board()
+# The game continues until 9 moves have been made (all squares have been filled) or until a player wins
+while is_finished != 9:
+    if turn == 1:
+        first = True
+        x = 0
+        y = 0
+        # If the player selects an invalid square, the turn continues until a valid square is selected
+        while first or not house[y][x].isdigit():
+            first = False
+            print_board()
+            print("select number=")
+            try:
+                z = input()
+            except:
+                continue
+            if z.isdigit():
+                z = int(z)
+                y = int(z/3)
+                x = z % 3
+            else:
+                continue
+        house[y][x] = 'X'
+        print_board()
+        turn = 0
+    is_finished += 1
+
+print('TIE')
