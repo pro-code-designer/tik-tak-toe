@@ -1,9 +1,14 @@
 import os
+import time
 import random
 
 
 # -------------------------------------------------------------------------------------------------------------------------------
 # Global variables to keep track of the game state
+win_con = False
+lose_con = False
+open_corner_house = [0, 2, 6, 8]
+open_side_house = [1, 3, 5, 7]
 is_finished = 0
 house = [['0', '1', '2'], ['3', '4', '5'], ['6', '7', '8']]
 
@@ -51,6 +56,29 @@ while is_finished != 9:
         house[y][x] = 'X'
         print_board()
         turn = 0
+    else:
+        print('computer is thinking.......')
+        time.sleep(1.5)
+        if win_con:
+            pass
+        elif lose_con:
+            pass
+        elif open_corner_house:
+            random_item = random.choice(open_corner_house)
+            y = int(random_item/3)
+            x = random_item % 3
+            open_corner_house.remove(random_item)
+            house[y][x] = 'O'
+        elif house[1][1].isdigit() == True:
+            house[1][1] = 'O'
+        else:
+            random_item = random.choice(open_side_house)
+            y = int(random_item/3)
+            x = random_item % 3
+            open_side_house.remove(random_item)
+            house[y][x] = 'O'
+        print_board()
+        turn = 1
     is_finished += 1
 
 print('TIE')
