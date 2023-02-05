@@ -27,6 +27,18 @@ def print_board():
                 print(y, end='|')
         print('\n-------')
 
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Function to remove the chosen position from the open_corner_house and open_side_house lists
+def safe_play(z):
+    try:
+        open_corner_house.remove(z)
+    except:
+        pass
+    try:
+        open_side_house.remove(z)
+    except:
+        pass
+
 # -------------------------------------------------------------------------------------------------------------------------------
 # The first turn is determined randomly by generating a random integer value between 1 and 2
 # If turn is 1, player's turn and 0 stands for computer's turn
@@ -55,6 +67,7 @@ while is_finished != 9:
                 continue
         house[y][x] = 'X'
         print_board()
+        safe_play(z)
         turn = 0
     else:
         print('computer is thinking.......')
@@ -79,6 +92,7 @@ while is_finished != 9:
             house[y][x] = 'O'
         print_board()
         turn = 1
+
     is_finished += 1
 
 print('TIE')
