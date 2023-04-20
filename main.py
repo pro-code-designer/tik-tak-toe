@@ -249,7 +249,7 @@ class TicTacToe:
 
         # create Game menu
         self.game_menu = tk.Menu(self.menu_bar, tearoff=False, bg="#0E0F18",
-                                 fg="#F5F5F5", font=Font(family="Segoe UI", size=14))
+                                 fg="#F5F5F5", font=Font(family="Segoe UI", size=10))
         self.game_menu.add_command(label="New Game", command=self.new_game)
         self.game_menu.add_separator()
         self.game_menu.add_command(label="Exit", command=master.quit)
