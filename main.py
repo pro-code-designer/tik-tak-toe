@@ -120,7 +120,6 @@ class Game:
             self.safe_play(z)
             return False
     def bot_play(self):
-        print(self.lose_con)
         if self.win_con:
             s = int(self.win_place[0]/3)
             t = self.win_place[0] % 3
@@ -243,7 +242,6 @@ class TicTacToe:
         self.game_over = False
         self.turn = random.randint(1, 2)
         self.full_house_nummber=0
-        print(self.turn)
 
         # create menu bar
         self.menu_bar = tk.Menu(master)
@@ -262,7 +260,6 @@ class TicTacToe:
     def button_click(self, row, column):
         if not self.game_over:
             button = self.buttons[row][column]
-            print(row," ",column)
             if button["text"] == "":
                 button["text"] = self.player
                 button.config(bg="#00B7C2")
@@ -279,7 +276,6 @@ class TicTacToe:
     def bot_play(self):
         lose,x,y=self.game.bot_play()
         button = self.buttons[x][y]
-        print(x," ",y)
         button["text"] = self.enemy
         button.config(bg="#FF4875")
         button = self.buttons[x][y]
