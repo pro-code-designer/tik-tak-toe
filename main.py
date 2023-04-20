@@ -214,11 +214,11 @@ class Game:
             return False,x,y
 
 
-class TicTacToe:
+class TikTakToe:
     def __init__(self, master):
         self.master = master
         self.game = Game()
-        self.master.title("Tic Tac Toe")
+        self.master.title("Tik Tak Toe")
         self.master.resizable(False, False)
         self.master.config(bg="#0E0F18")
 
@@ -250,7 +250,7 @@ class TicTacToe:
         # create Game menu
         self.game_menu = tk.Menu(self.menu_bar, tearoff=False, bg="#0E0F18",
                                  fg="#F5F5F5", font=Font(family="Segoe UI", size=10))
-        self.game_menu.add_command(label="New Game", command=self.new_game)
+        self.game_menu.add_command(label="New Game", command=self.new_game,)
         self.game_menu.add_separator()
         self.game_menu.add_command(label="Exit", command=master.quit)
         self.menu_bar.add_cascade(label="Game", menu=self.game_menu)
@@ -325,5 +325,5 @@ class TicTacToe:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    game = TicTacToe(root)
+    game = TikTakToe(root)
     root.mainloop()
