@@ -1,2 +1,3 @@
 # tik-tak-toe
- tiktaktoe with python 1 
+ 1 player tiktaktoe against computer 
+ with python , UI ,Tkinter 
